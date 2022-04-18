@@ -12,33 +12,40 @@ function playerPlay() {
     return choice;
   }
 }
-function chooseWinner() {
+function chooseWinner(playerSelection, computerSelection) {
   if (computerSelection === "rock" && playerSelection === "paper") {
-    return "winner";
+    return 0;
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
-    return "looser";
+    return 1;
   } else if (computerSelection === "paper" && playerSelection === "scissors") {
-    return "winner";
+    return 0;
   } else if (computerSelection === "paper" && playerSelection === "rock") {
-    return "looser";
+    return 1;
   } else if (computerSelection === "scissors" && playerSelection === "rock") {
-    return "winner";
+    return 0;
   } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    return "looser";
+    return 1;
   } else {
-    return "tie";
+    return 2;
   }
 }
-//console.log(computerPlay());
 function playRound(playerSelection, computerSelection) {
-  let result = chooseWinner();
-  console.log(result);
+  let result = chooseWinner(playerSelection, computerSelection);
+
+  if (result === 0) {
+    console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
+  } else if (result === 1) {
+    console.log(`You loose! ${computerSelection} beats ${playerSelection}!`);
+  } else if (result === 2) {
+    console.log(`It's a tie!`);
+  }
+  //console.log(result);
   //compare player selection to computer selection
   //return the winner
 }
 const computerSelection = computerPlay();
 const playerSelection = playerPlay();
-console.log(playRound(playerSelection, computerSelection));
+playRound(playerSelection, computerSelection);
 console.log(computerSelection);
 
 //add a game() function to call the functions
