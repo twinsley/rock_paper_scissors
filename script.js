@@ -1,15 +1,16 @@
 function computerPlay() {
-  //choose randomly between rock, paper, and scissors
-  //return the random choice
+  const choices = ["rock", "paper", "scissors"];
+  const number = Math.floor(Math.random() * 3);
+  return choices[number];
 }
-
-function playRound(playerSelection, computerSelection) {
-  //prompt player for input
-  //sanatize input to lowercase
-  //compare player selection to computer selection
-  //return the winner
-}
-const computerSelection = computerPlay();
+console.log(computerPlay());
+//function playRound(playerSelection, computerSelection) {
+//prompt player for input
+//sanatize input to lowercase
+//compare player selection to computer selection
+//return the winner
+//}
+//const computerSelection = computerPlay();
 //console.log(playRound)
 
 //add a game() function to call the functions
