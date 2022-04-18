@@ -3,15 +3,19 @@ function computerPlay() {
   const number = Math.floor(Math.random() * 3);
   return choices[number];
 }
-console.log(computerPlay());
-//function playRound(playerSelection, computerSelection) {
-//prompt player for input
-//sanatize input to lowercase
-//compare player selection to computer selection
-//return the winner
-//}
-//const computerSelection = computerPlay();
-//console.log(playRound)
+function playerPlay() {
+  const choice = prompt("Please choose rock, paper, or scissors").toLowerCase();
+  return choice;
+}
+//console.log(computerPlay());
+function playRound(playerSelection, computerSelection) {
+  console.log(playerSelection, computerSelection);
+  //compare player selection to computer selection
+  //return the winner
+}
+const computerSelection = computerPlay();
+const playerSelection = playerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
 //add a game() function to call the functions
 //Add a loop to play multiple rounds.
