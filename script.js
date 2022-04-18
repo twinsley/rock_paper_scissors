@@ -12,7 +12,7 @@ function playerPlay() {
     return choice;
   }
 }
-function chooseWinner(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
   if (computerSelection === "rock" && playerSelection === "paper") {
     return 0;
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
@@ -29,26 +29,32 @@ function chooseWinner(playerSelection, computerSelection) {
     return 2;
   }
 }
-function playRound(playerSelection, computerSelection) {
-  let result = chooseWinner(playerSelection, computerSelection);
-
-  if (result === 0) {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
-  } else if (result === 1) {
-    console.log(`You loose! ${computerSelection} beats ${playerSelection}!`);
-  } else if (result === 2) {
-    console.log(`It's a tie!`);
+function game() {
+  for (let i = 0; i < 5; i++) {
+    let result = playRound(playerSelection, computerSelection);
+    if (result === 0) {
+      console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
+    } else if (result === 1) {
+      console.log(`You loose! ${computerSelection} beats ${playerSelection}!`);
+    } else if (result === 2) {
+      console.log(`It's a tie!`);
+    }
+    computerSelection = computerPlay();
+    playerSelection = playerPlay();
+    if (result === 1) {
+      playerScore++;
+    } else if (result === 0) {
+      computerScore++;
+    }
   }
-  //console.log(result);
-  //compare player selection to computer selection
-  //return the winner
 }
-const computerSelection = computerPlay();
-const playerSelection = playerPlay();
-playRound(playerSelection, computerSelection);
-console.log(computerSelection);
-
-//add a game() function to call the functions
-//Add a loop to play multiple rounds.
-//log the result of each loop to the console.
-//log the game winner (Whoever won the most rounds)
+let computerSelection = computerPlay();
+let playerSelection = playerPlay();
+let computerScore = 0;
+let playerScore = 0;
+game();
+if (playerScore > computerScore) {
+  console.log(`Player wins overall!`);
+} else if (computerScore > playerScore) {
+  console.log(`Computer wins overall!`);
+}
