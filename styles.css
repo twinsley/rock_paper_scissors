@@ -1,3 +1,42 @@
 html {
   background-color: powderblue;
 }
+#scoreBox {
+  display: flex;
+  flex-direction: row;
+}
+#player {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+  margin: 10px;
+  flex-direction: column;
+}
+#computer {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+  margin: 10px;
+  flex-direction: column;
+}
+#playerName,
+#computerName {
+  display: flex;
+  margin: auto;
+}
+#playerScore,
+#computerScore {
+  margin: auto;
+  font-size: xx-large;
+  padding-bottom: 20px;
+}
