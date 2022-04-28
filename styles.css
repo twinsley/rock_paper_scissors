@@ -5,18 +5,7 @@ html {
   display: flex;
   flex-direction: row;
 }
-#player {
-  display: flex;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 7px;
-  margin: 10px;
-  flex-direction: column;
-}
+#player,
 #computer {
   display: flex;
   justify-content: center;
@@ -29,6 +18,7 @@ html {
   margin: 10px;
   flex-direction: column;
 }
+
 #playerName,
 #computerName {
   display: flex;
@@ -39,4 +29,35 @@ html {
   margin: auto;
   font-size: xx-large;
   padding-bottom: 20px;
+}
+.hidden {
+  display: none;
+}
+#game {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  align-items: center;
+  /* border-color: black;
+  border-width: 2px;
+  border-style: solid; */
+}
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  /* border-color: black;
+  border-width: 2px;
+  border-style: solid; */
+}
+button {
+  width: 70px;
+}
+#winnerPlayer,
+#winnerComputer {
+  width: 500px;
+  height: 500px;
+  border-color: red;
+  border-width: 3px;
+  border-style: solid;
 }
