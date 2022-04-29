@@ -49,8 +49,10 @@ function game() {
   console.log(computerScore, playerScore);
   if (playerScore === 5 && computerScore <= 5) {
     console.log(`Player wins overall!`);
+    gameOver();
   } else if (computerScore === 5 && playerScore <= 5) {
     console.log(`Computer wins overall!`);
+    gameOver();
   }
 }
 let computerSelection = computerPlay();
@@ -58,4 +60,16 @@ let computerSelection = computerPlay();
 let computerScore = 0;
 let playerScore = 0;
 
-// game();
+function gameOver() {
+  document.getElementById("game").classList.add("hidden");
+  document.querySelector("h3").classList.add("hidden");
+  document.getElementById("winnerPlayer").classList.remove("hidden");
+  const newGame = document.createElement("button");
+  newGame.innerText = "New Game?";
+  // newGame.addEventListener("click", reload());
+  document.body.appendChild(newGame);
+  newGame.addEventListener("click", function () {
+    location.reload();
+  });
+  newGame.classList.add("newGame");
+}
