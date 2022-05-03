@@ -1,12 +1,12 @@
 let playerSelection;
 let playerCounter = document.getElementById("playerScore");
 let computerCounter = document.getElementById("computerScore");
+let computerChoice = document.getElementById("computerChoice");
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     playerSelection = button.id;
-    console.log(playerSelection);
     game();
   });
 });
@@ -16,6 +16,7 @@ function computerPlay() {
   return choices[number];
 }
 function playRound(playerSelection, computerSelection) {
+  computerChoice.innerHTML = `Computer picked ${computerSelection}`;
   if (computerSelection === "rock" && playerSelection === "paper") {
     return 0;
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
@@ -40,6 +41,7 @@ function game() {
     computerCounter.innerHTML++;
   } else if (result === 2) {
     console.log(`It's a tie!`);
+    computerChoice.innerHTML = "It's a tie, please try again.";
   }
   computerSelection = computerPlay();
   //playerSelection = playerPlay();
