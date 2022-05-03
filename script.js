@@ -1,4 +1,6 @@
 let playerSelection;
+let playerCounter = document.getElementById("playerScore");
+let computerCounter = document.getElementById("computerScore");
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
@@ -33,9 +35,9 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let result = playRound(playerSelection, computerSelection);
   if (result === 0) {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
+    playerCounter.innerHTML++;
   } else if (result === 1) {
-    console.log(`You loose! ${computerSelection} beats ${playerSelection}!`);
+    computerCounter.innerHTML++;
   } else if (result === 2) {
     console.log(`It's a tie!`);
   }
@@ -48,15 +50,12 @@ function game() {
   }
   console.log(computerScore, playerScore);
   if (playerScore === 5 && computerScore <= 5) {
-    console.log(`Player wins overall!`);
     gameOver();
   } else if (computerScore === 5 && playerScore <= 5) {
-    console.log(`Computer wins overall!`);
     gameOver();
   }
 }
 let computerSelection = computerPlay();
-// let playerSelection = playerPlay();
 let computerScore = 0;
 let playerScore = 0;
 
