@@ -40,31 +40,32 @@ function game() {
   } else if (result === 1) {
     computerCounter.innerHTML++;
   } else if (result === 2) {
-    console.log(`It's a tie!`);
     computerChoice.innerHTML = "It's a tie, please try again.";
   }
   computerSelection = computerPlay();
-  //playerSelection = playerPlay();
   if (result === 1) {
     playerScore++;
   } else if (result === 0) {
     computerScore++;
   }
-  console.log(computerScore, playerScore);
   if (playerScore === 5 && computerScore <= 5) {
-    gameOver();
+    gameOver("computer");
   } else if (computerScore === 5 && playerScore <= 5) {
-    gameOver();
+    gameOver("player");
   }
 }
 let computerSelection = computerPlay();
 let computerScore = 0;
 let playerScore = 0;
 
-function gameOver() {
+function gameOver(winner) {
   document.getElementById("game").classList.add("hidden");
   document.querySelector("h3").classList.add("hidden");
-  document.getElementById("winnerPlayer").classList.remove("hidden");
+  if (winner === "player") {
+    document.getElementById("winnerPlayer").classList.remove("hidden");
+  } else if (winner === "computer") {
+    document.getElementById("winnerComputer").classList.remove("hidden");
+  }
   const newGame = document.createElement("button");
   newGame.innerText = "New Game?";
   // newGame.addEventListener("click", reload());
